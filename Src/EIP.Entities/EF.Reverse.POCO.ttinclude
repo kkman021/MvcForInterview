@@ -98,8 +98,12 @@ else
 <# } #>
 <# if (!Settings.UseInheritedBaseInterfaceFunctions) { #>
         int SaveChanges();
+		//Add by Ming not include in the tool,If update need add again.
+        int SaveChanges(int operatorId);
 <# if (Settings.IsSupportedFrameworkVersion("4.5")) { #>
         System.Threading.Tasks.Task<int> SaveChangesAsync();
+		//Add by Ming not include in the tool,If update need add again.
+        System.Threading.Tasks.Task<int> SaveChangesAsync(int operatorId);
         System.Threading.Tasks.Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken);
 <# } #>
         System.Data.Entity.Infrastructure.DbChangeTracker ChangeTracker { get; }
@@ -236,7 +240,9 @@ foreach(Table tbl in from t in Settings.Tables.Where(t => !t.IsMapping && t.HasP
 
 <#if(Settings.AddParameterlessConstructorToDbContext) {#>
         public <#=Settings.DbContextName#>()
+<#if(Settings.DefaultConstructorArgument != null) {#>
             : base(<#=Settings.DefaultConstructorArgument#>)
+<#}#>
         {
 <#if(Settings.DbContextClassIsPartial()) {#>            InitializePartial();
 <#}#>
