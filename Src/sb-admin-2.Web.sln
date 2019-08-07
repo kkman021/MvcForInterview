@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIP.Entities", "EIP.Entitie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIP.Core", "EIP.Core\EIP.Core.csproj", "{5155BC54-C98C-494E-A635-D4120244EC6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIP.CoreTests", "EIP.CoreTests\EIP.CoreTests.csproj", "{90BF86B9-73AA-4961-A598-006B06FCFAA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5155BC54-C98C-494E-A635-D4120244EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5155BC54-C98C-494E-A635-D4120244EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5155BC54-C98C-494E-A635-D4120244EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90BF86B9-73AA-4961-A598-006B06FCFAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90BF86B9-73AA-4961-A598-006B06FCFAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90BF86B9-73AA-4961-A598-006B06FCFAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90BF86B9-73AA-4961-A598-006B06FCFAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
