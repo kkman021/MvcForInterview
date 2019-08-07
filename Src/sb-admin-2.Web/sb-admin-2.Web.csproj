@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Domain\Data.cs" />
@@ -570,6 +571,9 @@
     <Content Include="bower_components\raphael\raphael.js" />
     <Content Include="bower_components\Sweetalert\sweetalert.css" />
     <Content Include="bower_components\Sweetalert\sweetalert.min.js" />
+    <Content Include="bower_components\toastr\toastr.default.js" />
+    <Content Include="bower_components\toastr\toastr.min.css" />
+    <Content Include="bower_components\toastr\toastr.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2.css" />
@@ -911,9 +915,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Shared\_Notification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -926,6 +932,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EIP.Core\EIP.Core.csproj">
+      <Project>{5155BC54-C98C-494E-A635-D4120244EC6E}</Project>
+      <Name>EIP.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EIP.Entities\EIP.Entities.csproj">
       <Project>{d4930365-2c6e-46e6-b3ec-09de7e6cd15f}</Project>
       <Name>EIP.Entities</Name>

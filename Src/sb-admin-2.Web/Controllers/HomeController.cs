@@ -7,7 +7,7 @@ using EIP.Entities;
 
 namespace sb_admin_2.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IEipDbContext _db;
 
@@ -23,9 +23,5 @@ namespace sb_admin_2.Web.Controllers
             return View();
         }
 
-        public ActionResult Notifications()
-        {
-            return View();
-        } 
     }
 }

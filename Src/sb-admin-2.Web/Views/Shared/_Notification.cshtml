@@ -1,0 +1,19 @@
+﻿@{
+    var storageId = Guid.NewGuid();
+    var message = HttpUtility.JavaScriptStringEncode(Convert.ToString(TempData["Msg.Message"]));
+    var messageType = HttpUtility.JavaScriptStringEncode(Convert.ToString(TempData["Msg.Type"]));
+    var messageTitle = HttpUtility.JavaScriptStringEncode(Convert.ToString(TempData["Msg.Title"]));
+}
+
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <script type="text/javascript">
+        $(function() {
+            if (!window.sessionStorage["@storageId"]) {
+                displayToastrMessage('@messageType', '@message', '@messageTitle');
+
+                window.sessionStorage["@storageId"] = true;
+            }
+        });
+    </script>
+}

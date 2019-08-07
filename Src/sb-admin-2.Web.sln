@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sb-admin-2.Web", "sb-admin-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIP.Entities", "EIP.Entities\EIP.Entities.csproj", "{D4930365-2C6E-46E6-B3EC-09DE7E6CD15F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIP.Core", "EIP.Core\EIP.Core.csproj", "{5155BC54-C98C-494E-A635-D4120244EC6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4930365-2C6E-46E6-B3EC-09DE7E6CD15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4930365-2C6E-46E6-B3EC-09DE7E6CD15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4930365-2C6E-46E6-B3EC-09DE7E6CD15F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5155BC54-C98C-494E-A635-D4120244EC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5155BC54-C98C-494E-A635-D4120244EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5155BC54-C98C-494E-A635-D4120244EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5155BC54-C98C-494E-A635-D4120244EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

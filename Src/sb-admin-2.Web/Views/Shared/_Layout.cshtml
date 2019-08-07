@@ -18,6 +18,7 @@
     <link href="@Url.Content("~/bower_components/morrisjs/morris.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/bower_components/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/bower_components/Sweetalert/sweetalert.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/bower_components/toastr/toastr.min.css")" rel="stylesheet" type="text/css" />
 
     <!-- jQuery -->
     @Scripts.Render("~/bundles/jquery")
@@ -25,22 +26,23 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="@Url.Content("~/bower_components/metisMenu/dist/metisMenu.min.js")"></script>
     <script src="@Url.Content("~/bower_components/Sweetalert/sweetalert.min.js")"></script>
+    <script src="@Url.Content("~/bower_components/toastr/toastr.min.js")"></script>
+    <script src="@Url.Content("~/bower_components/toastr/toastr.default.js")"></script>
 </head>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         @Html.Action("Index", "Navbar")
-        
+
         <div id="page-wrapper">
-            @RenderBody()          
+            @RenderBody()
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-         
     <!-- DataTables JavaScript -->
     <script src="@Url.Content("~/bower_components/raphael/raphael-min.js")"></script>
- 
+
     <!-- DataTables JavaScript -->
     <script src="@Url.Content("~/bower_components/datatables/media/js/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js")"></script>
@@ -57,6 +59,7 @@
         });
     </script>
     @RenderSection("scripts", required: false)
+    @Html.Partial("_Notification")
 </body>
 </html>
 
