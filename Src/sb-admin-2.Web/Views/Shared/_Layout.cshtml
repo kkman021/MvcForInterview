@@ -60,6 +60,42 @@
     </script>
     @RenderSection("scripts", required: false)
     @Html.Partial("_Notification")
+
+<script type="text/javascript">
+    $.extend(true,
+        $.fn.dataTable.defaults,
+        {
+            pageLength: 10, //預設分頁大小
+            searching: false, //關閉預設搜尋功能
+            lengthChange: true, //關閉分頁大小選項
+            lengthMenu: [10, 30, 50],
+            language: { //設定語系
+                "processing": "處理中...",
+                "loadingRecords": "載入中...",
+                "lengthMenu": "顯示 _MENU_ 項結果",
+                "zeroRecords": "沒有符合的結果",
+                "info": "顯示第 _START_ 至 _END_ 筆結果，共 _TOTAL_ 筆",
+                "infoEmpty": "顯示第 0 至 0 筆結果，共 0 筆",
+                "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+                "infoPostFix": "",
+                "search": "搜尋:",
+                "paginate": {
+                    "first": "第一頁",
+                    "previous": "上一頁",
+                    "next": "下一頁",
+                    "last": "最後一頁"
+                },
+                "aria": {
+                    "sortAscending": ": 升冪排列",
+                    "sortDescending": ": 降冪排列"
+                },
+                "emptyTable": "系統查無符合條件的資訊"
+            },
+            serverSide: true, //啟用ServerSide模式
+            order: [[0, "asc"]], //預設排序資料行(由0算起)
+            orderMulti: false //不允許多欄位同時排序
+        });
+</script>
 </body>
 </html>
 

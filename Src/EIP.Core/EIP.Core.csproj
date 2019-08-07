@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Enum\NotifyType.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
+    <Compile Include="Extensions\QueryableExtension.cs" />
+    <Compile Include="PageResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -50,7 +50,7 @@ namespace sb_admin_2.Web.Controllers
         #region JsonDotNetResult
 
         /// <summary>
-        ///     覆寫 Json Result 改成走 CamelCase
+        ///     覆寫 Json item 改成走 CamelCase
         /// </summary>
         /// <param name="data">資料</param>
         /// <param name="contentType">Response Content Type</param>
