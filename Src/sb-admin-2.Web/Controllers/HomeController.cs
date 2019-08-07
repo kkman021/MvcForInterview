@@ -39,7 +39,8 @@ namespace sb_admin_2.Web.Controllers
                     ChtName = x.ChtName,
                     No = x.No
                 })
-                .ToPagedList(condition.Draw, condition.StartRecordCount, condition.PageSize);
+                .OrderBy(x=> x.Id)
+                .ToPagedList(condition.Draw, condition.Start, condition.Length);
 
             return Json(data);
         }
@@ -68,7 +69,7 @@ namespace sb_admin_2.Web.Controllers
                 return View(model);
             }
 
-            var entity = new Employee()
+            var entity = new Employee
             {
                 ChtName = model.ChtName.Trim(),
                 EngName = model.EngName.Trim(),
@@ -82,6 +83,82 @@ namespace sb_admin_2.Web.Controllers
 
             NotifySuccess("新增成功");
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var model = _db.Employees
+                .Where(x => x.Id == id)
+                .Select(x => new Edit
+                {
+                    Id = x.Id,
+                    ChtName = x.ChtName,
+                    EngName = x.EngName,
+                    Email = x.Email,
+                    No = x.No
+                })
+                .FirstOrDefault();
+
+            if (model == null)
+            {
+                NotifyError("查無資料，或資料已被刪除");
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Edit(Edit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                NotifyError("有資料異常，請檢核");
+                return View(model);
+            }
+
+            if (_db.Employees.Any(x => x.No == model.No.Trim() && x.Id != model.Id))
+            {
+                ModelState.AddModelError(nameof(model.No), "員工編號重覆");
+                NotifyError("員工編號重覆，請重新輸入");
+                return View(model);
+            }
+
+            var entity = _db.Employees.Find(model.Id);
+
+            if (entity == null)
+            {
+                NotifyError("查無資料，或資料已被刪除");
+                return RedirectToAction("Index");
+            }
+
+            entity.No = model.No.Trim();
+            entity.ChtName = model.ChtName.Trim();
+            entity.EngName = model.EngName.Trim();
+            entity.Email = model.Email.Trim();
+
+            _db.SaveChanges(EmployeeId);
+
+            NotifySuccess("更新成功");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var entity = _db.Employees.Find(id);
+
+            if (entity == null)
+            {
+                Response.StatusCode = 400;
+                return Json("查無資料");
+            }
+
+            _db.Employees.Remove(entity);
+            _db.SaveChanges(EmployeeId);
+            
+            return Json("刪除成功");
         }
     }
 }
